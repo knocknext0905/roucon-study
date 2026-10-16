@@ -1,31 +1,24 @@
-労コンStudy PWA版 v4.0
+労コンStudy PWA v4.1.0（GitHub Pages用）
 
-【構成】
-- index.html
-- manifest.webmanifest
-- service-worker.js
-- icons/
+【今回の修正】
+・令和7年度「労働衛生関係法令」15問で問題文が表示されない不具合を修正。
+  原因：データ側が prompt、表示側が question を参照していたため。
+・今後同様のデータ差があっても表示できるフォールバック処理を追加。
+・Service Worker のキャッシュ名を v4.1.0 に更新。
 
-【オフライン利用】
-PWAのService Workerは file:// では動きません。HTTPSで公開するか、開発時は localhost で起動してください。
-一度オンラインで起動すると、アプリ本体・問題データ・アイコンが端末にキャッシュされ、その後はオフラインでも問題演習できます。学習履歴は端末のlocalStorageに保存されます。
+【GitHub Pagesでの更新方法】
+既存 roucon-study リポジトリのルートで、次の2ファイルを差し替えれば今回の修正は反映されます。
+  1. index.html
+  2. service-worker.js
+manifest.webmanifest と icons は変更ありません。
 
-【簡単なローカル確認】
-このフォルダで Python が使える場合：
-  python -m http.server 8000
-その後、ブラウザで http://localhost:8000/ を開きます。
+GitHubで Add file → Upload files から上記2ファイルをアップロードし、既存ファイルを置き換えて Commit changes してください。
 
-【公開】
-GitHub Pages / Cloudflare Pages / Netlify 等のHTTPS静的ホスティングに、このフォルダの中身をそのまま配置してください。
+【端末側】
+オンライン状態で労コンStudyを起動し、設定 →「更新を確認」。
+「新しいアプリ版があります」と表示されたら「更新」を押します。
+表示されない場合は一度アプリを完全終了して再起動してください。
+学習履歴は localStorage に保存されているため、通常この更新では消えません。
 
-【更新】
-index.htmlやservice-worker.jsを更新する際は、service-worker.jsの CACHE_NAME も変更すると確実です。
-
-
-【GitHub Pages 公開用】
-1. GitHubで public repository（例: roucon-study）を作成
-2. ZIPを展開し、フォルダ内の index.html / manifest.webmanifest / service-worker.js / .nojekyll / icons フォルダをリポジトリ直下へアップロード
-3. Settings > Pages > Build and deployment > Source: Deploy from a branch
-4. Branch: main、Folder: /(root) を選び Save
-5. 公開URL（https://<ユーザー名>.github.io/<リポジトリ名>/）を開く
-6. 一度オンライン起動後、Service Workerがアプリ本体をキャッシュし、オフライン利用可能
+【確認】
+年度別 → 令和7年度 → 法令15問 を開始し、問題文が表示されることを確認してください。
