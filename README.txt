@@ -1,24 +1,2 @@
-労コンStudy PWA v4.1.0（GitHub Pages用）
-
-【今回の修正】
-・令和7年度「労働衛生関係法令」15問で問題文が表示されない不具合を修正。
-  原因：データ側が prompt、表示側が question を参照していたため。
-・今後同様のデータ差があっても表示できるフォールバック処理を追加。
-・Service Worker のキャッシュ名を v4.1.0 に更新。
-
-【GitHub Pagesでの更新方法】
-既存 roucon-study リポジトリのルートで、次の2ファイルを差し替えれば今回の修正は反映されます。
-  1. index.html
-  2. service-worker.js
-manifest.webmanifest と icons は変更ありません。
-
-GitHubで Add file → Upload files から上記2ファイルをアップロードし、既存ファイルを置き換えて Commit changes してください。
-
-【端末側】
-オンライン状態で労コンStudyを起動し、設定 →「更新を確認」。
-「新しいアプリ版があります」と表示されたら「更新」を押します。
-表示されない場合は一度アプリを完全終了して再起動してください。
-学習履歴は localStorage に保存されているため、通常この更新では消えません。
-
-【確認】
-年度別 → 令和7年度 → 法令15問 を開始し、問題文が表示されることを確認してください。
+roucon-study v4.4.1
+GitHub Pages: replace index.html and service-worker.js for update.
